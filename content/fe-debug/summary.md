@@ -1,6 +1,6 @@
 # 概述
 
-[debug](./../../images/fe-debug/debug.png)
+![debug](./../../images/fe-debug/debug.png)
 
 ## 概念
 调试是什么，调试是发现和减少计算机程序中程序错误的一个过程
