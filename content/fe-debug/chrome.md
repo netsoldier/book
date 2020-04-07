@@ -149,7 +149,7 @@ var sum = parseInt(addend1) + parseInt(addend2);
 
 ## 总结
 
-本文简单对Chrome进行前端调试对一些入门方法进行介绍，工欲善其事，必先利其器，Chrome 对于前端开发人员来说，不仅仅是一款网页浏览工具，同时也是一款开发效率工具，功能也不仅限调试。
+本文简单对Chrome进行前端调试的一些入门方法进行介绍，工欲善其事，必先利其器，Chrome 对于前端开发人员来说，不仅仅是一款网页浏览工具，同时也是一款开发效率工具，功能也不仅限调试。
 
 ## 资源参考
 [Markdown TOC](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc)
