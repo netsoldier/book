@@ -24,6 +24,8 @@ Chrome调试，主要是通过开发者工具DevTools进行，网页调试功能
   - [js 调试](#js-调试)
     - [常规调试](#常规调试)
     - [本地调试](#本地调试)
+  - [总结](#总结)
+  - [资源参考](#资源参考)
 
 <!-- /TOC -->
 
@@ -118,4 +120,38 @@ var sum = parseInt(addend1) + parseInt(addend2);
 
 ### 本地调试
 
-随着前端工程化普及，大多数情况下，我们需要面对的是经过ugly的js代码
+先说明一下，本段所说的本地调试的基本技巧，同样适用于html、css 等。
+
+通常，为了对网页加载优化，或者不希望逻辑代码赤裸裸的暴露，我们会对js代码ugly处理，丑到爹妈都不认识，想象一下，如果这个时候，线上环境出现了问题，该如何调试。
+
+为了演示，将上节这中示例代码下载到本地，并对get-started.js代码进行ugly，并重命名为get-started.min.js,同时修改get-started.html中js引用，运行结果如下：
+
+![示例](./../../images/fe-debug/debug-js-local.png)
+![mini代码示例](./../../images/fe-debug/debug-js-local-mini.png)
+
+注意到get-started.min.js文件里代码可读性非常差，下面将演示，在这种情况下，如何对js进行调试：
+
+1、切换到Sources-Overrides 面板
+在File Navigator 窗格里，切换到Overrides面板。
+
+2、添加本地文件目录到workspace
+切换到Overrides后，窗格里会出现Add folder to workspace按钮，在磁盘合适位置选择一个文件目录，选中目录后，浏览器会弹出一个要求完全访问权限的对话框，本着对大厂浏览器对盲目崇拜，我都是点击「允许」，添加完成后，选中的磁盘目录会映射到当前窗格里。
+
+3、返回Page 面板，鼠标右键点击get-started.min.js文件，弹出菜单里会都出一项功能「Save for overrides」,效果分别如下图
+
+![save for overrides](./../../images/fe-debug/debug-js-local-menu.png)
+
+![overrides panel](./../../images/fe-debug/debug-js-local-overrides.png)
+
+4、点击get-started.min.js文件，在Code Editor 窗格处，将没有ugly处理到源代码粘贴覆盖，记得Command+S 保存。
+
+5、接下来的调试过程，如上一节常规调试一样
+
+## 总结
+
+本文简单对Chrome进行前端调试对一些入门方法进行介绍，工欲善其事，必先利其器，Chrome 对于前端开发人员来说，不仅仅是一款网页浏览工具，同时也是一款开发效率工具，功能也不仅限调试。
+
+## 资源参考
+[Markdown TOC](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc)
+
+[Tools for Web Developers](https://developers.google.com/web/tools/chrome-devtools)
