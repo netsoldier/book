@@ -84,9 +84,9 @@ style 窗格内，每一处样式定义，都会在右侧标明出处，出处�
 可在DevTools Sources面板中可对js 进行调试，Sources面板包括三个部分：
 ![Sources](./../../images/fe-debug/sources-panel.png)
 
-- File Navigator 窗格。 此处列出页面请求的每个文件。
-- Code Editor 窗格。 在 File Navigator 窗格中选择文件后，此处会显示该文件的内容。
-- JavaScript Debugging 窗格。 检查页面 JavaScript 的各种工具。 如果 DevTools 窗口布局较宽，此窗格会显示在 Code Editor 窗格右侧。
+- 1、File Navigator 窗格。 此处列出页面请求的每个文件。
+- 2、Code Editor 窗格。 在 File Navigator 窗格中选择文件后，此处会显示该文件的内容。
+- 3、JavaScript Debugging 窗格。 检查页面 JavaScript 的各种工具。 如果 DevTools 窗口布局较宽，此窗格会显示在 Code Editor 窗格右侧。
 
 来看一个谷歌关于Sources面板调试js示例，[地址在这里](https://googlechrome.github.io/devtools-samples/debug-js/get-started)。
 
@@ -94,11 +94,11 @@ style 窗格内，每一处样式定义，都会在右侧标明出处，出处�
 - 两个输入框部分输入，结果显示“Error: one or both inputs are empty.”
 - 两个输入完全输入，结果显示两个数字的和
 
-通过执行代码，部分输入的情况，程序运行，完全符合我们的预期，不存在问题。
+通过执行代码，部分输入的情况，程序运行结果完全符合我们的预期，不存在问题。
 
-完全输入情况下，比如两个数字分别填写5和1，当点击下方求和按钮后，得到的结果是51，而不是正确答案6，我们知道，应该是程序的某个地方出现了问题，在不能确定故障原因情况下，我们对js代码进行调试。
+完全输入情况下，比如两个数字分别填写5和1，当点击下方求和按钮后，得到的结果是51，而不是正确答案6，我们知道，应该是程序的某个地方出现了问题，在不能确定故障原因情况下，我们需要对js代码进行调试。
 
-通过上述两种情况的判断，我们判断，程序应该是在 updateLabel 方法里出现了异常，为了进一步缩小调试范围，根据结果，异常出现在结果显示处，所以我们将断点设置在对应代码行 32，点击32行行号后，行号上会出现一个蓝色的箭头图标。现在点击按钮，会发现代码执行到32行处后停止了，如下图：
+为了进一步缩小调试范围，通过上述两种情况的判断，我们认为程序应该是在 updateLabel 方法里出现了异常，根据异常结果，异常出现在结果显示处，所以我们将断点设置在对应代码行 32，点击32行行号后，行号上会出现一个蓝色的箭头图标。现在点击页面上的求和按钮，会发现代码执行到32行处后停止了，如下图：
 ![Sources](./../../images/fe-debug/sources-panel-breakpoint.png)
 
 addend1、addend2 和 sum 的值疑似有问题。 这些值位于引号中，这意味着它们是字符串。 这个假设有助于说明错误的原因。
@@ -116,7 +116,16 @@ var sum = parseInt(addend1) + parseInt(addend2);
 
 有个小细节注意下，当我修改来31行代码后，js文件右上角会多处一个*号，这表示修改的代码并未生效，此时快捷键Command+S进行保存后，*号将消失，前方会多处一个感叹号（不用纠结感叹号），重新点击求和按钮，断点依旧会在32行处停止，sum的值类型已经变成数字类型，结束调试，结果也是预期的6。
 
-至此，js 常规调试说明完毕。
+至此，js 常规调试说明完毕，回顾一下，js调试的过程，我们先后经历了：
+
+- 分析代码发现程序错误的存在
+- 以隔离、消除的方式对错误进行定位
+- 确定（猜想）错误产生的原因
+- 根据错误原因，提出纠正错误的解决办法
+- 修改代码，重新测试
+
+至此，一个比较完整的js调试过程便结束了。
+
 
 ### 本地调试
 
@@ -129,7 +138,7 @@ var sum = parseInt(addend1) + parseInt(addend2);
 ![示例](./../../images/fe-debug/debug-js-local.png)
 ![mini代码示例](./../../images/fe-debug/debug-js-local-mini.png)
 
-注意到get-started.min.js文件里代码可读性非常差，下面将演示，在这种情况下，如何对js进行调试：
+注意到get-started.min.js文件里代码可读性非常差，出现异常后，几乎不能完成代码调试。下面将演示，在这种情况下，如何对js进行调试：
 
 1、切换到Sources-Overrides 面板
 在File Navigator 窗格里，切换到Overrides面板。
