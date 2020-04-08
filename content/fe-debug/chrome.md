@@ -1,8 +1,8 @@
 # 在Chrome中调试网页
 
-根据标题会知道，本文描述的所有内容都是基于Chrome浏览器，至于为什么没说Firefox 、Safari、IE 等浏览器？
+根据标题会知道，本文描述的所有内容都是基于Mac Chrome浏览器，至于为什么没说Firefox 、Safari、IE 等浏览器？
 - 首先，Chrome 已经足够好用，其他浏览器提供的调试功能，Chrome 基本都有，其他浏览器没有的调试功能，Chrome大部分也都有；
-- 另外，本人对Chrome相对了解多一些。😄
+- 另外，对Chrome相对了解多一些。😄
 
 Chrome调试，主要是通过开发者工具DevTools进行，网页调试功能主要几种在DevTools工具的Elements及Sources面板中。接下来，将在这两个面板中，分别对html、css、js 进行调试演示。
 
@@ -31,18 +31,18 @@ Chrome调试，主要是通过开发者工具DevTools进行，网页调试功能
 
 ## html 调试
 
-以百度网址www.baidu.com 为例，我们尝试在百度logo图片上进行接下来的调试演示
+以百度网址 www.baidu.com 为例，我们尝试在百度logo图片上进行接下来的调试演示
 ### 添加属性
 
 在Elements 面板中，选中logo图片，DevTools 会自动帮我们高亮定位到对应到dom 节点，鼠标右键改节点，弹出到菜单中，我们选择「Add attribute」,DevTools 会在当前logo节点末尾处多处一段空白到输入区域，这里我们可以输入一些当前节点属性，很灵活，很方便；编辑完成后，点击输入区域以外任意区域，或者回车键确认，添加属性会立即生效。比如我们在当前节点上增加style="display:none" 后，点击区域外任意区域后，当前图片会立即消失。
 
-![添加属性](/images/fe-debug/html-add-attr.png)
+![添加属性](https://i.loli.net/2020/04/08/pa8GF9EZeVcrmS1.png)
 
 ### 编辑属性
 
 触发某个属性的编辑状态，有两种比较简便的方式，一种是鼠标悬停在对应属性上，鼠标右键，点击功能菜单中的「Edit attribute」；另外一种方式是鼠标双击对应属性，任意一种方式操作后，对应属性，会处于可编辑状态，修改成相应属性值后，点击其它区域，或者回车，属性同样会立即生效。
 
-![编辑属性](/images/fe-debug/htmt-edit-attr.png)
+![编辑属性](https://i.loli.net/2020/04/08/kCuXn5vYOZfFBQj.png)
 
 ### 删除节点
 
@@ -59,7 +59,7 @@ Chrome调试，主要是通过开发者工具DevTools进行，网页调试功能
 
 Style 窗格是什么，如下图：
 
-![Style窗格](/images/fe-debug/styles-pane.png)
+![Style窗格](https://i.loli.net/2020/04/08/FJBnKwHAPLGEIkp.png)
 
 选中dom 元素后，窗格内会显示当前元素的相关样式定义，在对应定义处进行修改，修改会即刻生效
 
@@ -82,7 +82,7 @@ style 窗格内，每一处样式定义，都会在右侧标明出处，出处�
 这里的「常规调试」，是相对「本地调试」而言，下一章节将具体说明。
 
 可在DevTools Sources面板中可对js 进行调试，Sources面板包括三个部分：
-![Sources](/images/fe-debug/sources-panel.png)
+![Sources](https://i.loli.net/2020/04/08/69jz4vAK2BgVcds.png)
 
 - 1、File Navigator 窗格。 此处列出页面请求的每个文件。
 - 2、Code Editor 窗格。 在 File Navigator 窗格中选择文件后，此处会显示该文件的内容。
@@ -99,7 +99,7 @@ style 窗格内，每一处样式定义，都会在右侧标明出处，出处�
 完全输入情况下，比如两个数字分别填写5和1，当点击下方求和按钮后，得到的结果是51，而不是正确答案6，我们知道，应该是程序的某个地方出现了问题，在不能确定故障原因情况下，我们需要对js代码进行调试。
 
 为了进一步缩小调试范围，通过上述两种情况的判断，我们认为程序应该是在 updateLabel 方法里出现了异常，根据异常结果，异常出现在结果显示处，所以我们将断点设置在对应代码行 32，点击32行行号后，行号上会出现一个蓝色的箭头图标。现在点击页面上的求和按钮，会发现代码执行到32行处后停止了，如下图：
-![Sources](/images/fe-debug/sources-panel-breakpoint.png)
+![Sources](https://i.loli.net/2020/04/08/Qn5IMA3wGycmjWo.png)
 
 addend1、addend2 和 sum 的值疑似有问题。 这些值位于引号中，这意味着它们是字符串。 这个假设有助于说明错误的原因。
 
@@ -135,8 +135,8 @@ var sum = parseInt(addend1) + parseInt(addend2);
 
 为了演示，将上节这中示例代码下载到本地，并对get-started.js代码进行ugly，并重命名为get-started.min.js,同时修改get-started.html中js引用，运行结果如下：
 
-![示例](/images/fe-debug/debug-js-local.png)
-![mini代码示例](/images/fe-debug/debug-js-local-mini.png)
+![示例](https://i.loli.net/2020/04/08/yInsP2pmXeqLZB7.png)
+![mini代码示例](https://i.loli.net/2020/04/08/7Wnhy1CIR4c8iuf.png)
 
 注意到get-started.min.js文件里代码可读性非常差，出现异常后，几乎不能完成代码调试。下面将演示，在这种情况下，如何对js进行调试：
 
@@ -148,9 +148,9 @@ var sum = parseInt(addend1) + parseInt(addend2);
 
 3、返回Page 面板，鼠标右键点击get-started.min.js文件，弹出菜单里会都出一项功能「Save for overrides」,效果分别如下图
 
-![save for overrides](/images/fe-debug/debug-js-local-menu.png)
+![save for overrides](https://i.loli.net/2020/04/08/Xbl9dCqaxpGN3os.png)
 
-![overrides panel](/images/fe-debug/debug-js-local-overrides.png)
+![overrides panel](https://i.loli.net/2020/04/08/CygcoJjXfNVqHh7.png)
 
 4、点击get-started.min.js文件，在Code Editor 窗格处，将没有ugly处理到源代码粘贴覆盖，记得Command+S 保存。
 
