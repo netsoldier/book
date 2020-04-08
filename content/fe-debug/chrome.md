@@ -163,4 +163,6 @@ var sum = parseInt(addend1) + parseInt(addend2);
 ## 资源参考
 [Markdown TOC](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc)
 
+[断点 Breakpoint](https://zh.wikipedia.org/wiki/%E6%96%AD%E7%82%B9)
+
 [Tools for Web Developers](https://developers.google.com/web/tools/chrome-devtools)
