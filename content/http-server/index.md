@@ -39,10 +39,10 @@
 
 好，言归正传
 
-phthon 官方文档地址：https://docs.python.org/，好消息是从版本3.7 开始，文档内容已经可以选择简体中文阅读，说明我泱泱大国的pythoner 也是一股不小的力量。
+phthon 官方文档地址：https://docs.python.org/， 好消息是从版本3.7 开始，文档内容已经可以选择简体中文阅读，说明我泱泱大国的pythoner 也是一股不小的力量。
 
   ### version 2
-  当前的mac 系统，都会默认安装python，版本大多是2.7.xx，2.7 版本也会是version 2 里的最后一个版本，所以，使用mac的同学，不用安装，可以直接使用，代码也很简单,如下
+  当前的mac 系统，都会默认安装python，版本大多是2.7.xx，2.7 版本也会是version 2 里的最后一个版本，所以，使用mac的同学，不用安装，可以直接使用，启动指令也很简单,如下
   ```
   //8080是端口号，也可不指定，自动分配默认端口
   python -m SimpleHTTPServer 8080
@@ -107,9 +107,9 @@ surge
 
 ## Web server for chrome
 
-这是一款Chrome 浏览器扩展，可在Chrome 网上应用商店[下载](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/)，这款扩展程序提供可视化界面操作，很多同学应该会喜欢
+这是一款Chrome 浏览器扩展，可在Chrome 网上应用商店[下载](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/)，这款扩展程序提供可视化操作界面，很多同学应该会喜欢。
 
 详细信息[可参见这里](https://github.com/kzahel/web-server-chrome)
 
 ## 各种源代码管理平台的Page 服务
-比如github page、gitlab page
+比如github page、gitlab page 等。
